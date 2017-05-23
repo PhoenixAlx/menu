@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<script src="menu.js"></script>
+<style>
+
+.link {
+  stroke: #aaa;
+}
+
+.node text {
+stroke:#333;
+cursos:pointer;
+}
+
+.node circle{
+stroke:#fff;
+stroke-width:3px;
+fill:#555;
+}
+
+</style>
+<body>
+    <header id="menu"></header>
+
+ 
+<script>
+
+var m= new menu("menu");
+m.setImgMenu("img/menu.png");
+m.putMenu();
+m.addOptions({"elements":["Potatoes","Ducks"]});
+m.addOptions({"elements":["Shops","Home"],"parent":"Potatoes"});
+m.addOptions({"elements":["White","dark"],"parent":"Ducks"});
+m.addOptions({"elements":["cuaaack","recuaack"],"parent":"dark"});
+
+
+//m.addPrincipalOptions(categorias);
+
+
+</script>
+</body>
+</html>
