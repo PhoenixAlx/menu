@@ -17,8 +17,8 @@ class menu{
         this.img=src;
     }
     addPrincipalHTML(){
-        let botton_menu='<img id="menu_img" src="'+this.img+'" class="botton_menu"></img>';
-        let navegation='<nav id="nav_menu" ></nav>';
+        let botton_menu='<img id="menu_img_'+this.name_container+'" src="'+this.img+'" class="botton_menu"></img>';
+        let navegation='<nav id="nav_menu_'+this.name_container+'" ></nav>';
         let div_container=document.getElementById(this.name_container);
         div_container.innerHTML=botton_menu+navegation;
         
@@ -33,8 +33,8 @@ class menu{
         this.addCSSRule(document.styleSheets[0], '.menu_'+this.name_container+" nav li", "border-bottom: solid 1px #000000;",1);
     }
     addPrincipalEvent(){
-        let botton_menu=document.getElementById("menu_img");
-        botton_menu.addEventListener("click", this.activeMenu);
+        let botton_menu=document.getElementById('menu_img_'+this.name_container);
+        botton_menu.addEventListener("click", ()=>{this.activeMenu()});
     }
     insertOptions(dict_options,parent){
         let position=0;
@@ -63,12 +63,10 @@ class menu{
         if (dict_options.parent=="undefined" || dict_options.parent==null ){
             //principal options
             let parent="nav_menu_li_option";
-            let nav_ul_menu=document.getElementById("nav_menu");
+            let nav_ul_menu=document.getElementById('nav_menu_'+this.name_container);
             nav_ul_menu.innerHTML=this.insertOptions(dict_options,parent)+'</ul>';
         }else{
             let parent=this.element[dict_options.parent];
-            console.log("dict_options.parent ",dict_options.parent)
-            console.log("parent ",parent)
             let li_parent=document.getElementById(parent);
             let new_li="<details><summary>"+li_parent.innerHTML+"</summary>";
             new_li=new_li+this.insertOptions(dict_options,parent)+'</ul></details>';
@@ -76,9 +74,8 @@ class menu{
         }
         
     }
-    
     activeMenu(){
-        let navegation=document.getElementById("nav_menu");
+        let navegation=document.getElementById('nav_menu_'+this.name_container);
         if (this.active){
             navegation.style.display="none";
         }else{
