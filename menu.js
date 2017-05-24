@@ -7,6 +7,8 @@ class menu{
         this.img="";
         this.z_index=10000;
         this.background_color="#FFFFFF";
+        this.left="0px";
+        this.top="0px";
         
     }
     putMenu(){
@@ -22,6 +24,12 @@ class menu{
     }
     set backgroundColor(color){
         this.background_color=color;
+    }
+    set positionLeft(pos){
+        this.left=pos;
+    }
+    set positionTop(pos){
+            this.top=pos;
     }
     addPrincipalHTML(){
         this.addMenuCSS();
@@ -47,6 +55,8 @@ class menu{
         menu.style.display="block";
         menu.style.zIndex=this.z_index;
         menu.style.position="absolute";
+        menu.style.left=this.left;
+        menu.style.top=this.top;
     }
     addNavCSS(border_size,color){
         let nav_menu=document.getElementById('nav_menu_'+this.name_container);
@@ -98,9 +108,9 @@ class menu{
     insertOptions(dict_options,parent){
         let position=this.getPosition(dict_options);
         let list_options=dict_options.elements;
-        let ul_id='nav_menu_ul';
+        let ul_id='nav_menu_ul_'+this.name_container;
         if (position>0){
-            ul_id=ul_id+parent.split("nav_menu_li_option")[1]+"_"+position;
+            ul_id=ul_id+parent.split("nav_menu_li_option_"+this.name_container)[1]+"_"+position;
         }else{
             ul_id=ul_id+"_"+position;
         }
@@ -120,7 +130,7 @@ class menu{
         let parent="";
         if (dict_options.parent=="undefined" || dict_options.parent==null ){
             //principal options
-            parent="nav_menu_li_option";
+            parent="nav_menu_li_option_"+this.name_container;
             let nav_ul_menu=document.getElementById('nav_menu_'+this.name_container);
             nav_ul_menu.innerHTML=this.insertOptions(dict_options,parent)+'</ul>';
         }else{
