@@ -6,6 +6,7 @@ class menu{
         this.element_position={};//Dict {position:integer}
         this.img="";
         this.z_index=10000;
+        this.background_color="#FFFFFF";
         
     }
     putMenu(){
@@ -18,6 +19,9 @@ class menu{
     }
     set zIndex(value){
         this.z_index=value;
+    }
+    set backgroundColor(color){
+        this.background_color=color;
     }
     addPrincipalHTML(){
         this.addMenuCSS();
@@ -50,6 +54,7 @@ class menu{
         nav_menu.style.width="100%";
         nav_menu.style.border="solid "+border_size+" "+color;
         nav_menu.style.borderRadius="5px";
+        nav_menu.style.backgroundColor=this.background_color;
     }
     addUlCSS(ul_id,position){
         let ul_menu=document.getElementById(this.element[ul_id]);
