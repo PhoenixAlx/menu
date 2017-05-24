@@ -63,8 +63,6 @@ class menu{
         ul_menu.style.padding="0";
         ul_menu.style.margin="0";
         ul_menu.style.textAlign="center";
-        console.log ("ul_id ",ul_id);
-        console.log ("ul_menu.style.listStyle ",ul_menu.style.listStyle);
         
     }   
     addLiCSS(li_id,position){
