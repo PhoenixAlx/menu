@@ -62,9 +62,12 @@ class menu{
         let nav_menu=document.getElementById('nav_menu_'+this.name_container);
         nav_menu.style.display="none";
         nav_menu.style.width="100%";
+        nav_menu.style.maxHeight="500px";
         nav_menu.style.border="solid "+border_size+" "+color;
         nav_menu.style.borderRadius="5px";
         nav_menu.style.backgroundColor=this.background_color;
+        nav_menu.style.overflow="auto";
+ 
     }
     addUlCSS(ul_id,position){
         let ul_menu=document.getElementById(this.element[ul_id]);
@@ -73,6 +76,7 @@ class menu{
         ul_menu.style.padding="0";
         ul_menu.style.margin="0";
         ul_menu.style.textAlign="center";
+
         
     }   
     addLiCSS(li_id,position){
