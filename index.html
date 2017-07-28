@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <script src="vue.js"></script>
-<script src="menu.js"></script>
+<!-- <script src="menu.js"></script> -->
+
 <style>
 
 .link {
@@ -21,18 +22,31 @@ fill:#555;
 
 </style>
 <body>
-    <header id="menu"></header>
+    <!-- <header id="menu"></header> -->
+    <div id="menu">
 
+        <!--
+          Now we provide each todo-item with the todo object
+          it's representing, so that its content can be dynamic.
+          We also need to provide each component with a "key",
+          which will be explained later.
+        -->
+        <!-- <menu-list
+          v-bind:data="daticos"
+          v-bind:key="id">
+        </menu-list> -->
 
+    </div>
+<script src="menu-component.js"></script>
 <script>
 
-var m= new menu("menu");
-m.imgMenu="img/menu.png";
-m.putMenu();
-m.addOptions({"elements":["Potatoes","Ducks"]});
-m.addOptions({"elements":["Shops","Home"],"parent":"Potatoes"});
-m.addOptions({"elements":["White","dark"],"parent":"Ducks"});
-m.addOptions({"elements":["cuaaack","recuaack"],"parent":"dark"});
+// var m= new menu("menu");
+// m.imgMenu="img/menu.png";
+// m.putMenu();
+// m.addOptions({"elements":["Potatoes","Ducks"]});
+// m.addOptions({"elements":["Shops","Home"],"parent":"Potatoes"});
+// m.addOptions({"elements":["White","dark"],"parent":"Ducks"});
+// m.addOptions({"elements":["cuaaack","recuaack"],"parent":"dark"});
 
 
 //m.addPrincipalOptions(categorias);
